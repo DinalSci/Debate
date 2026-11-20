@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kassandra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+  <div class="brand">Kassandra<span>.</span></div>
+  <div class="top">
+    <select id="lang" aria-label="Language"><option value="en-US">English</option><option value="si-LK">Sinhala</option></select>
+    <nav class="tabs"><button id="t1" class="on">Prepare</button><button id="t2">Live debate</button></nav>
+  </div>
+</header>
+
+<section id="v1">
+  <div class="panel">
+    <h2>Your debate</h2>
+    <label for="topic">Topic (motion)</label>
+    <input type="text" id="topic" placeholder="This house believes that social media does more harm than good">
+    <label>Your side</label>
+    <div class="side">
+      <button data-s="Proposition" class="on"><b>Proposition</b><small>Support the motion</small></button>
+      <button data-s="Opposition"><b>Opposition</b><small>Oppose the motion</small></button>
+    </div>
+    <label for="notes">Your own notes (optional)</label>
+    <textarea id="notes" placeholder="Paste points, statistics, quotes..."></textarea>
+    <label>Files</label>
+    <div class="drop" id="drop">Drop files here or tap to choose<br><span class="note">PDF, images, .txt, .md (up to 3 MB in total)</span></div>
+    <input type="file" id="file" multiple accept=".pdf,.txt,.md,image/*" class="hide">
+    <div class="files" id="files"></div>
+    <div class="row" style="margin-top:18px">
+      <button class="btn" id="go">Scan and build my case</button>
+      <span class="note" id="st"></span>
+    </div>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div id="caseBox" class="panel hide"><h2>Your case</h2><div id="caseOut"></div></div>
+
+  <div class="panel">
+    <h2>Find more information</h2>
+    <p class="note" style="margin-top:-6px">Ask the AI to search the web. Results are added to your case and used in the live debate.</p>
+    <div class="row">
+      <input type="text" id="q" placeholder="e.g. statistics on teen anxiety and social media">
+      <button class="btn" id="srch">Search</button>
+    </div>
+    <div id="extra" style="margin-top:14px"></div>
+  </div>
+</section>
+
+<section id="v2" class="hide">
+  <div class="panel">
+    <h2>Listen to the other team</h2>
+    <p class="note" style="margin-top:-6px">Press the mic while they speak. When they finish, press it again and Kassandra checks their points against your case.</p>
+    <div class="row" style="gap:18px">
+      <button class="mic" id="mic" aria-label="Start or stop listening">&#127908;</button>
+      <div style="flex:1;min-width:200px"><div id="mst" class="note">Mic is off</div></div>
+    </div>
+    <label for="tr">What they said (you can edit or type it too)</label>
+    <textarea id="tr" placeholder="The transcript appears here..."></textarea>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" id="brk">Break their arguments</button>
+      <button class="btn ghost" id="clr">Clear</button>
+    </div>
+    <div class="err" id="err2"></div>
+  </div>
+  <div id="resBox" class="panel hide"><h2>How to answer them</h2><div id="res"></div></div>
+</section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
